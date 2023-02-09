@@ -58,24 +58,29 @@
     const infoWindow = new google.maps.InfoWindow();
 
     healthCenters.forEach((center) => {
+      const [lat, lng] = center.geolocation.split(',');
+
       center = {
-        lat: +center.geolocation.split(',')[0],
-        lng: +center.geolocation.split(',')[1],
+        lat: +lat,
+        lng: +lng,
         ...center,
       }
+
       createMarker(center, map, infoWindow);
     });
   }
 
   function createMarker(center, map, infoWindow) {
+    const {address, lat, lng, name} = center;
+
     const scheme = 'maps:0,0?q=';
-    const latLng = `${center.lat},${center.lng}`;
-    const label = `${center.name}`;
+    const latLng = `${lat},${lng}`;
+    const label = name;
     const url = `${scheme}${label}@${latLng}`;
     const marker = new google.maps.Marker({
-      position: {lat: center.lat, lng: center.lng},
+      position: {lat, lng},
       map,
-      title: center.name,
+      title: name,
     });
 
     marker.addListener("click", () => {
@@ -83,8 +88,8 @@
 
       infoWindow.setContent(`
           <div class="infoWindow">
-            <h2 class="infoWindow__title">${center.name}</h2>
-            <p class="infoWindow__address">${center.address}</p>
+            <h2 class="infoWindow__title">${name}</h2>
+            <p class="infoWindow__address">${address}</p>
             <div class="infoWindow__directions">
               <a class="infoWindow__button" href="${url}">
                 Directions
