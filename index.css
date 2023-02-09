@@ -77,6 +77,14 @@ body {
   position: relative;
 }
 
+.button:hover .bg-image--title {
+  background-color: #9f47c2;
+}
+
+.button:hover .bg-image {
+  opacity: 0.8;
+}
+
 .bg-image {
   border-radius: 20%;
   box-sizing: border-box;
@@ -94,7 +102,7 @@ body {
   border-radius: 0 0 40px 40px;
   left: 0;
   right: 0;
-  background: #7e3e98;
+  background-color: #7e3e98;
   color: #fff;
   padding: 10px 0;
   padding: 16px 20px 20px;
