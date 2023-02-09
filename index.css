@@ -79,6 +79,8 @@ body {
 
 .bg-image {
   border-radius: 20%;
+  box-sizing: border-box;
+  border: 2px solid #7e3e98;
   background-size: cover;
   background-position: center;
   opacity: 0.9;
