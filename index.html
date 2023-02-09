@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+  <meta charset="UTF-8">
   <link rel="stylesheet" type="text/css" href="./index.css" />
-  <title>Title</title>
+  <title>Hera - EarthquakeSOS</title>
 </head>
 <body>
 <div id="map"></div>
@@ -14,12 +14,15 @@
 ></script>
 <script src="local-data.js"></script>
 <script>
-  const getHealthCenters = async () => {
-    const response = await fetch('https://herav2-web-service.production-turkey.herav2.heradigitalhealth.com/health_centers/');
-    return response.json();
-  }
+  // TODO - Will be activated later
+  // const getHealthCenters = async () => {
+  //   const response = await fetch('https://herav2-web-service.production-turkey.herav2.heradigitalhealth.com/health_centers/');
+  //   return response.json();
+  // }
+
   const getLocation = async () => {
     const defaultPosition = { lat: 37.1768562341751, lng: 37.01209105546673 };
+
     if (navigator.geolocation) {
       return new Promise((resolve) => {
         navigator.geolocation.getCurrentPosition((position) => {
@@ -34,12 +37,15 @@
     }
     return [defaultPosition, false];
   }
+
   async function initMap(healCenterGetaway) {
     const [coordinates, isUserPosition] = await getLocation();
+
     const map = new google.maps.Map(document.getElementById("map"), {
       zoom: 10,
       center: coordinates,
     });
+
     if (isUserPosition) {
         const svgMarker = {
             path: "M -1.53 11.933 z M 0 0 q 2.906 0 4.945 2.039 t 2.039 4.945 q 0 1.453 -0.727 3.328 t -1.758 3.516 t -2.039 3.07 t -1.711 2.273 l -0.75 0.797 q -0.281 -0.328 -0.75 -0.867 t -1.688 -2.156 t -2.133 -3.141 t -1.664 -3.445 t -0.75 -3.375 q 0 -2.906 2.039 -4.945 t 4.945 -2.039 z",
@@ -57,14 +63,18 @@
         map,
       });
     }
+
     const infoWindow = new google.maps.InfoWindow();
+
     const healthCenters = await healCenterGetaway();
+
     healthCenters.forEach((center) => {
       center = {
         lat: +center.geolocation.split(',')[0],
         lng: +center.geolocation.split(',')[1],
         ...center,
       }
+
       const scheme = 'maps:0,0?q=';
       const latLng = `${center.lat},${center.lng}`;
       const label = `${center.name}`;
@@ -74,19 +84,27 @@
         map,
         title: center.name,
       });
+
       marker.addListener("click", () => {
         infoWindow.close();
 
         infoWindow.setContent(`
-          <a href="${url}">
-          <h2>${center.name}</h2>
-          <p>${center.address}</p>
-          </a>
+          <div class="infoWindow">
+            <h2 class="infoWindow__title">${center.name}</h2>
+            <p class="infoWindow__address">${center.address}</p>
+            <div class="infoWindow__directions">
+              <a class="infoWindow__button" href="${url}">
+                Directions
+              </a>
+            </div>
+          </div>
         `);
+
         infoWindow.open(marker.getMap(), marker);
       });
     });
   }
+
   window.init = () => {
     initMap(inMemoryGetaway);
   };

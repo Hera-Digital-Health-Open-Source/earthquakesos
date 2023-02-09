@@ -1,5 +1,5 @@
 #map {
-    height: 100%;
+  height: 100%;
 }
 
 /*
@@ -7,7 +7,42 @@
  */
 html,
 body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.infoWindow {
+  color: #333;
+  padding: 10px;
+}
+
+.infoWindow__title {
+  margin: 0 0 10px
+}
+
+.infoWindow__address {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin: 0 0 20px;
+}
+
+.infoWindow__directions {
+  margin-bottom: 5px
+}
+
+.infoWindow__button {
+  background-color: #f0f7ff;
+  border: 1px solid #1a73e8;
+  border-radius: 15px;
+  color: #1a73e8;
+  font-size: 0.875rem;
+  padding: 7px 12px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.gm-ui-hover-effect {
+
+
 }
