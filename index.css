@@ -42,7 +42,98 @@ body {
   font-weight: bold;
 }
 
-.gm-ui-hover-effect {
+body {
+  font-family: sans-serif;
+}
+
+.wrapper {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+}
+
+.col {
+  display: flex;
+  padding: 1em;
+  margin: 0 2px 2px 0;
+  justify-content: center;
+}
+
+.button {
+  cursor: pointer;
+  display: flex;
+  height: 200px;
+  width: 200px;
+  position: relative;
+}
+
+.bg-image {
+  border-radius: 20%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.9;
+  width: 100%;
+  height: 100%;
+}
+
+.bg-image--title {
+  position: absolute;
+  bottom: 0px;
+  border-radius: 0 0 40px 40px;
+  left: 0;
+  right: 0;
+  background: #7e3e98;
+  color: #fff;
+  padding: 10px 0;
+  padding: 16px 20px 20px;
+  text-align: center;
+}
+
+.bg-image--map {
+  background-image: url("./images/healthcare-map.png");
+}
+
+.bg-image--translation {
+  background-image: url("./images/translation-service.png");
+}
+
+.logo__image {
+  margin: 0 auto;
+  width: min(50vw, 200px);
+}
+
+/* Responsive: */
+@media only screen and (min-width: 640px) {
+  .wrapper {
+    max-width: 70%;
+  }
+  .col {
+    flex: 1;
+  }
+  .links {
+    flex-direction: row;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .wrapper {
+    max-width: 50%;
+  }
+}
 
 
+@media only screen and (min-width: 1200px) {
+  .wrapper {
+    max-width: 40%;
+  }
 }
