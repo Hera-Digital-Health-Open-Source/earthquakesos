@@ -1,4 +1,4 @@
-const inMemoryHealthCenters = async () =>
+const inMemoryGetaway = async () =>
     ([
         {"name": "B\u00dcY\u00dcKSOFULU A\u0130LE SA\u011eLI\u011eI MERKEZ\u0130",
             "address": "B\u00fcy\u00fcksofulu, Alada\u011f B\u00fcy\u00fcksofulu Aile Sa\u011fl\u0131\u011f\u0131 Merkezi, Alada\u011f/Adana, T\u00fcrkiye",
