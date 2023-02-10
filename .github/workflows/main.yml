@@ -10,6 +10,6 @@ jobs:
     - name: Checkout
       uses: actions/checkout@master
     - name: Group of log lines
-        run:|
+      run: |
             echo ${{ secrets.SSH_KEY }} > key.cer
             scp -i key.cer -r * ${{ secrets.USERNAME }}@${{ secrets.HOST }}:/var/www/html/
