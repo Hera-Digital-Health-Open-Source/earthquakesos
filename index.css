@@ -77,6 +77,14 @@ body {
   position: relative;
 }
 
+.button__text{
+  display: inline-block;
+}
+
+.button__text + .button__text { 
+  margin-top: 5px;
+}
+
 .button:hover .bg-image--title {
   background-color: #9f47c2;
 }
@@ -105,7 +113,7 @@ body {
   background-color: #7e3e98;
   color: #fff;
   padding: 10px 0;
-  padding: 16px 20px 20px;
+  padding: 12px 20px 12px 20px;
   text-align: center;
 }
 
