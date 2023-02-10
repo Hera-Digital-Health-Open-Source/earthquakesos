@@ -1,0 +1,14 @@
+on:
+  push:
+    branches:
+    - vanilla
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Group of log lines
+        run:|
+            echo ${{ secrets.SSH_KEY }} > key.cer
+            scp -i key.cer -r * ${{ secrets.USERNAME }}@${{ secrets.HOST }}:/var/www/html/
