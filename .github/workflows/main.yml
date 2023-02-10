@@ -15,4 +15,6 @@ jobs:
           ssh-private-key: ${{ secrets.SSH_KEY }}
     - name: Deploy to server
       run: |
-            scp -r * ${{ secrets.USERNAME }}@${{ secrets.HOST }}:/var/www/html/
+            ls
+            pwd
+#            scp -r * ${{ secrets.USERNAME }}@${{ secrets.HOST }}:/var/www/html/
