@@ -70,10 +70,10 @@
   function createMarker(center, map, infoWindow) {
     const {address, lat, lng, name} = center;
 
-    const scheme = 'maps:0,0?q=';
     const latLng = `${lat},${lng}`;
-    const label = name;
-    const url = `${scheme}${label}@${latLng}`;
+    const url = `https://www.google.com/maps/?q=${latLng}&ll=${latLng}&z=15`;
+    const urlGetDirections = `https://www.google.com/maps?saddr=My+Location&daddr=${latLng}`;
+
     const marker = new google.maps.Marker({
       position: {lat, lng},
       map,
@@ -87,10 +87,13 @@
           <div class="infoWindow">
             <h2 class="infoWindow__title">${name}</h2>
             <p class="infoWindow__address">${address}</p>
-            <div class="infoWindow__directions">
-              <a class="infoWindow__button" href="${url}">
-                Directions
-              </a>
+            <div class="infoWindow__buttons">
+                <a class="infoWindow__button" href="${url}" target="_blank">
+                  Google Haritalarda Aç
+                </a>
+                <a class="infoWindow__button" href="${urlGetDirections}" target="_blank">
+                  Yol Tarifi
+                </a>
             </div>
           </div>
         `);

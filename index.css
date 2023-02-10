@@ -27,19 +27,21 @@ body {
   margin: 0 0 20px;
 }
 
-.infoWindow__directions {
-  margin-bottom: 5px
+.infoWindow__buttons {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .infoWindow__button {
   background-color: #f0f7ff;
   border: 1px solid #1a73e8;
-  border-radius: 15px;
+  border-radius: 5px;
   color: #1a73e8;
   font-size: 0.875rem;
   padding: 7px 12px;
   text-decoration: none;
   font-weight: bold;
+  margin: 5px;
 }
 
 body {
