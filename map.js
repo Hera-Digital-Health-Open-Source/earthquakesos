@@ -9,7 +9,7 @@ const TYPES = {
   SHR: { label: 'SHR', color: '#0a53a8' },
   SYR: { label: 'SYR', color: '#753800' },
   ECZ: { label: 'ECZ', color: '#b10202' },
-  default: { label: '-', color: '#666' },
+  default: { label: '--', color: '#EA4335' },
 };
 
 const getHealthCenters = async () => {
