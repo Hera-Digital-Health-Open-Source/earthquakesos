@@ -13,4 +13,4 @@ jobs:
       run: echo "${{ secrets.SSH_KEY }}" > key.cer
     - name: Deploy to server
       run: |
-            scp -i ./key.cer -r * ${{ secrets.USERNAME }}@${{ secrets.HOST }}:/var/www/html/
+            scp  -o "StrictHostKeyChecking no" ${{ secrets.HOST }} -i ./key.cer -r * ${{ secrets.USERNAME }}@${{ secrets.HOST }}:/var/www/html/
