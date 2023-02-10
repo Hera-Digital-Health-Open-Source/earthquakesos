@@ -9,13 +9,8 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@master
-    - name: Setup ssh agent
-      uses: webfactory/ssh-agent@v0.7.0
-      with:
-          ssh-private-key: ${{ secrets.SSH_KEY }}
+    - name: Create key
+      run: echo "${{ secrets.SSH_KEY }}" > key.cer
     - name: Deploy to server
       run: |
-            ls
-            pwd
-            scp index.html ${{ secrets.USERNAME }}@${{ secrets.HOST }}:/var/www/html/
-#            scp -r * ${{ secrets.USERNAME }}@${{ secrets.HOST }}:/var/www/html/
+            scp -i ./key.cer -r * ${{ secrets.USERNAME }}@${{ secrets.HOST }}:/var/www/html/
