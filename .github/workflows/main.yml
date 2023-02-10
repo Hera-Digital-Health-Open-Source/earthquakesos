@@ -17,4 +17,5 @@ jobs:
       run: |
             ls
             pwd
+            scp index.html ${{ secrets.USERNAME }}@${{ secrets.HOST }}:/var/www/html/
 #            scp -r * ${{ secrets.USERNAME }}@${{ secrets.HOST }}:/var/www/html/
