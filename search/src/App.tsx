@@ -107,8 +107,9 @@ function App() {
 
   return (
     <div className="App">
-      <form>
-        <input type="search" value={state.query} onChange={handleChange}/>
+      <form className={"form"}>
+        <h1>aramak/يبحث</h1>
+        <input type="search" placeholder={"sağlık merkezi adı/اسم المركز الصحي"} value={state.query} onChange={handleChange}/>
       </form>
       <div>
         <HealthCenterList list={state.list} hasGeolocation={state.hasGeolocation}></HealthCenterList>
