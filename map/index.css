@@ -120,16 +120,16 @@ body {
 }
 
 .bg-image--map {
-  background-image: url("../images/healthcare-map.png");
+  background-image: url("images/healthcare-map.png");
 }
 
 .bg-image--translation {
-  background-image: url("../images/translation-service.png");
+  background-image: url("images/translation-service.png");
 }
 
 
 .bg-image--list {
-  background-image: url("../images/list.png");
+  background-image: url("images/list.png");
   background-size: contain;
 }
 
