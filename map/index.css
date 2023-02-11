@@ -127,6 +127,12 @@ body {
   background-image: url("../images/translation-service.png");
 }
 
+
+.bg-image--list {
+  background-image: url("../images/list.png");
+  background-size: contain;
+}
+
 .logo__image {
   margin: 0 auto;
   width: min(50vw, 200px);
