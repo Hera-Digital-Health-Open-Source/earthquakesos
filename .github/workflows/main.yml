@@ -4,7 +4,7 @@ on:
     - vanilla
 jobs:
   build:
-    name: Build
+    name: Build & Deploy
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
@@ -15,6 +15,10 @@ jobs:
         key: ${{ secrets.SSH_KEY }}
         known_hosts: ${{ secrets.HOST }}
         if_key_exists: fail # replace / ignore / fail; optional (defaults to fail)
-    - name: Deploy to server
+    - name: Build and deploy search list
+      run: |
+        cd search && yarn build
+        ls
+    - name: Deploy map to server
       run: |
             scp -r -o "StrictHostKeyChecking no" * ${{secrets.USERNAME}}@${{ secrets.HOST }}:/var/www/html/
