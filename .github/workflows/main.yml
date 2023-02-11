@@ -18,7 +18,7 @@ jobs:
     - name: Build and deploy search list
       run: |
         cd search && yarn && yarn build
-        ls
+        scp -r -o "StrictHostKeyChecking no" ./dist/* ${{secrets.USERNAME}}@${{ secrets.HOST }}:/var/www/html/search/
     - name: Deploy map to server
       run: |
             scp -r -o "StrictHostKeyChecking no" ./map/* ${{secrets.USERNAME}}@${{ secrets.HOST }}:/var/www/html/
