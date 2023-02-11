@@ -21,4 +21,4 @@ jobs:
         ls
     - name: Deploy map to server
       run: |
-            scp -r -o "StrictHostKeyChecking no" * ${{secrets.USERNAME}}@${{ secrets.HOST }}:/var/www/html/
+            scp -r -o "StrictHostKeyChecking no" ./map/* ${{secrets.USERNAME}}@${{ secrets.HOST }}:/var/www/html/
