@@ -17,7 +17,7 @@ jobs:
         if_key_exists: fail # replace / ignore / fail; optional (defaults to fail)
     - name: Build and deploy search list
       run: |
-        cd search && yarn build
+        cd search && yarn && yarn build
         ls
     - name: Deploy map to server
       run: |
