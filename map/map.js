@@ -12,6 +12,8 @@ const TYPES = {
   default: { label: '--', color: '#EA4335' },
 };
 
+const INACTIVE_COLOR = '#444';
+
 const getHealthCenters = async () => {
   const response = await fetch(
     'https://herav2-web-service.production-turkey.herav2.heradigitalhealth.com/health_centers/'
@@ -53,11 +55,15 @@ function getTypeLabel(type) {
 
 function displayHealthCentersOnMap(healthCenters, map) {
   const infoWindow = new google.maps.InfoWindow();
-  healthCenters.forEach(({ geolocation, type, ...props }) => {
+
+  healthCenters.forEach(({ activity_state, geolocation, type, ...props }) => {
     const [lat, lng] = geolocation.split(',');
-    const color = getTypeColor(type);
+    const color =
+      activity_state !== 'Aktif' ? INACTIVE_COLOR : getTypeColor(type);
     const label = getTypeLabel(type);
+
     const center = {
+      activity_state,
       color,
       label,
       lat: +lat,
