@@ -53,12 +53,10 @@ function getTypeLabel(type) {
 
 function displayHealthCentersOnMap(healthCenters, map) {
   const infoWindow = new google.maps.InfoWindow();
-
   healthCenters.forEach(({ geolocation, type, ...props }) => {
     const [lat, lng] = geolocation.split(',');
     const color = getTypeColor(type);
     const label = getTypeLabel(type);
-    console.log({ ...props, type });
     const center = {
       color,
       label,
