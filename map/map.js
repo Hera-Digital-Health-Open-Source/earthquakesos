@@ -1,6 +1,6 @@
 const TYPES = {
   DH: { label: 'Devlet Hastanesi', color: '#e8eaed' },
-  OH: { label: 'Özel Hastane', color: '#ffcfc9' },
+  ÖH: { label: 'Özel Hastane', color: '#ffcfc9' },
   POLI: { label: 'Poliklinik', color: '#ffc8aa' },
   ASM: { label: 'Aile Sağlık Merkezi', color: '#ffe5a0' },
   GSM: { label: 'Göçmen Sağlık Merkezi', color: '#d4edbc' },
@@ -58,7 +58,7 @@ function displayHealthCentersOnMap(healthCenters, map) {
     const [lat, lng] = geolocation.split(',');
     const color = getTypeColor(type);
     const label = getTypeLabel(type);
-
+    console.log({ ...props, type });
     const center = {
       color,
       label,
