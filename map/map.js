@@ -1,7 +1,7 @@
 const TYPES = {
   DH: { label: 'Devlet Hastanesi', color: '#e8eaed' },
   ÖH: { label: 'Özel Hastane', color: '#ffcfc9' },
-  POLI: { label: 'Poliklinik', color: '#ffc8aa' },
+  POLİ: { label: 'Poliklinik', color: '#ffc8aa' },
   ASM: { label: 'Aile Sağlık Merkezi', color: '#ffe5a0' },
   GSM: { label: 'Göçmen Sağlık Merkezi', color: '#d4edbc' },
   TSM: { label: 'Toplum Sağlık Merkezi', color: '#bfe1f6' },
@@ -67,6 +67,7 @@ function displayHealthCentersOnMap(healthCenters, map) {
       activity_state,
       color,
       label,
+      type,
       lat: +lat,
       lng: +lng,
       ...props,
@@ -87,31 +88,28 @@ function createMarker(center, map, infoWindow) {
     lng,
     name,
     color,
+    type
   } = center;
 
   const latLng = `${lat},${lng}`;
   const url = `https://www.google.com/maps/?q=${latLng}&ll=${latLng}&z=15`;
   const urlGetDirections = `https://www.google.com/maps?saddr=My+Location&daddr=${latLng}`;
   const lastUpdateDate = new Date(last_updated);
-
-  const svgMarker = {
-    // path: 'M -1.53 11.933 z M 0 0 q 2.906 0 4.945 2.039 t 2.039 4.945 q 0 1.453 -0.727 3.328 t -1.758 3.516 t -2.039 3.07 t -1.711 2.273 l -0.75 0.797 q -0.281 -0.328 -0.75 -0.867 t -1.688 -2.156 t -2.133 -3.141 t -1.664 -3.445 t -0.75 -3.375 q 0 -2.906 2.039 -4.945 t 4.945 -2.039 z',
-    path: google.maps.SymbolPath.CIRCLE,
-    fillColor: color,
-    fillOpacity: 0.8,
-    strokeColor: color,
-    strokeWeight: 2,
-    strokeOpacity: 1,
-    rotation: 0,
-    scale: 12,
-    anchor: new google.maps.Point(0, 0),
-    labelOrigin: new google.maps.Point(0, 0),
+  console.log(type);
+  const image = {
+    url: `./images/${type ?? 'default'}.png`,
+    // This marker is 20 pixels wide by 32 pixels high.
+    size: new google.maps.Size(30, 30),
+    // The origin for this image is (0, 0).
+    origin: new google.maps.Point(0, 0),
+    // The anchor for this image is the base of the flagpole at (0, 32).
+    anchor: new google.maps.Point(15, 15),
   };
 
   const marker = new google.maps.Marker({
     position: { lat, lng },
     map,
-    icon: svgMarker,
+    icon: image,
     title: name,
   });
 
