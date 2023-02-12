@@ -72,11 +72,21 @@ function displayHealthCentersOnMap(healthCenters, map) {
 }
 
 function createMarker(center, map, infoWindow) {
-  const { activity_state, address, label, lat, lng, name, color } = center;
+  const {
+    activity_state,
+    address,
+    label,
+    last_updated,
+    lat,
+    lng,
+    name,
+    color,
+  } = center;
 
   const latLng = `${lat},${lng}`;
   const url = `https://www.google.com/maps/?q=${latLng}&ll=${latLng}&z=15`;
   const urlGetDirections = `https://www.google.com/maps?saddr=My+Location&daddr=${latLng}`;
+  const lastUpdateDate = new Date(last_updated);
 
   const svgMarker = {
     // path: 'M -1.53 11.933 z M 0 0 q 2.906 0 4.945 2.039 t 2.039 4.945 q 0 1.453 -0.727 3.328 t -1.758 3.516 t -2.039 3.07 t -1.711 2.273 l -0.75 0.797 q -0.281 -0.328 -0.75 -0.867 t -1.688 -2.156 t -2.133 -3.141 t -1.664 -3.445 t -0.75 -3.375 q 0 -2.906 2.039 -4.945 t 4.945 -2.039 z',
@@ -111,7 +121,8 @@ function createMarker(center, map, infoWindow) {
                 activity_state === 'Aktif' && 'infoWindow__state--active'
               }"> ${activity_state}</span>
               <span class="infoWindow__type">(${label})</span>
-            </div>
+              </div>
+              <div class="infoWindow__lastUpdated">(Son güncelleme: ${lastUpdateDate.toLocaleString()})</div>
             <p class="infoWindow__address">${address}</p>
             <div class="infoWindow__buttons">
                 <a class="infoWindow__button" href="${url}" target="_blank">
