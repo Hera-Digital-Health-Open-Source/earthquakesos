@@ -107,13 +107,15 @@ function createMarker(center, map, infoWindow) {
             <h2 class="infoWindow__title">${name}</h2>
             <div class="infoWindow__state-section">
               Durum:
-              <span class="infoWindow__state"> ${activity_state}</span>
+              <span class="infoWindow__state ${
+                activity_state === 'Aktif' && 'infoWindow__state--active'
+              }"> ${activity_state}</span>
+              <span class="infoWindow__type">(${label})</span>
             </div>
-            <div class="infoWindow__type">(${label})</div>
             <p class="infoWindow__address">${address}</p>
             <div class="infoWindow__buttons">
                 <a class="infoWindow__button" href="${url}" target="_blank">
-                  Google Haritalarda Aç
+                  Google Haritalarda Aç 
                 </a>
                 <a class="infoWindow__button" href="${urlGetDirections}" target="_blank">
                   Yol Tarifi

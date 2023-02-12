@@ -33,6 +33,10 @@ body {
   color: #d64c4c;
 }
 
+.infoWindow__state--active {
+  color: #00aa00;
+}
+
 .infoWindow__type {
   font-size: 0.875rem;
   color: #666;
