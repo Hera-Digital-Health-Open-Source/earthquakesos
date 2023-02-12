@@ -14,6 +14,7 @@ const TYPES = {
 
 const INACTIVE_COLOR = '#444';
 
+const markers = [];
 const getHealthCenters = async () => {
   const response = await fetch(
     'https://herav2-web-service.production-turkey.herav2.heradigitalhealth.com/health_centers/'
@@ -71,8 +72,9 @@ function displayHealthCentersOnMap(healthCenters, map) {
       ...props,
     };
 
-    createMarker(center, map, infoWindow);
+    markers.push(createMarker(center, map, infoWindow));
   });
+  new markerClusterer.MarkerClusterer({ map, markers });
 }
 
 function createMarker(center, map, infoWindow) {
@@ -141,6 +143,7 @@ function createMarker(center, map, infoWindow) {
 
     infoWindow.open(marker.getMap(), marker);
   });
+  return marker;
 }
 
 function displayUserPin(map, coordinates) {
