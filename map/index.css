@@ -21,10 +21,22 @@ body {
   margin: 0 0 5px
 }
 
+.infoWindow__state-section {
+  color: #666;
+  font-size: 1rem;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.infoWindow__state {
+  font-size: 1rem;
+  color: #d64c4c;
+}
+
 .infoWindow__type {
   font-size: 0.875rem;
-  color: #d64c4c;
-  margin-bottom: 15px;
+  color: #666;
+  margin-bottom: 10px;
   font-weight: bold;
 }
 

@@ -72,7 +72,7 @@ function displayHealthCentersOnMap(healthCenters, map) {
 }
 
 function createMarker(center, map, infoWindow) {
-  const { address, label, lat, lng, name, color } = center;
+  const { activity_state, address, label, lat, lng, name, color } = center;
 
   const latLng = `${lat},${lng}`;
   const url = `https://www.google.com/maps/?q=${latLng}&ll=${latLng}&z=15`;
@@ -105,6 +105,10 @@ function createMarker(center, map, infoWindow) {
     infoWindow.setContent(`
           <div class="infoWindow">
             <h2 class="infoWindow__title">${name}</h2>
+            <div class="infoWindow__state-section">
+              Durum:
+              <span class="infoWindow__state"> ${activity_state}</span>
+            </div>
             <div class="infoWindow__type">(${label})</div>
             <p class="infoWindow__address">${address}</p>
             <div class="infoWindow__buttons">
