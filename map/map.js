@@ -1,14 +1,14 @@
 const TYPES = {
-  DH: { label: 'DH', color: '#e8eaed' },
-  OH: { label: 'ÖH', color: '#ffcfc9' },
-  POLI: { label: 'POLİ', color: '#ffc8aa' },
-  ASM: { label: 'ASM', color: '#ffe5a0' },
-  GSM: { label: 'GSM', color: '#d4edbc' },
-  TSM: { label: 'TSM', color: '#bfe1f6' },
-  ADM: { label: 'ADM', color: '#c6dbe1' },
-  SHR: { label: 'SHR', color: '#0a53a8' },
-  SYR: { label: 'SYR', color: '#753800' },
-  ECZ: { label: 'ECZ', color: '#b10202' },
+  DH: { label: 'Devlet Hastanesi', color: '#e8eaed' },
+  OH: { label: 'Özel Hastane', color: '#ffcfc9' },
+  POLI: { label: 'Poliklinik', color: '#ffc8aa' },
+  ASM: { label: 'Aile Sağlık Merkezi', color: '#ffe5a0' },
+  GSM: { label: 'Göçmen Sağlık Merkezi', color: '#d4edbc' },
+  TSM: { label: 'Toplum Sağlık Merkezi', color: '#bfe1f6' },
+  ADM: { label: 'Müdürlük/Bakanlık', color: '#c6dbe1' },
+  SHR: { label: 'Sahra Çadırı/Hastanesi', color: '#0a53a8' },
+  SYR: { label: 'Seyyar Revir/Eczane', color: '#753800' },
+  ECZ: { label: 'Eczane', color: '#b10202' },
   default: { label: '--', color: '#EA4335' },
 };
 
@@ -104,7 +104,8 @@ function createMarker(center, map, infoWindow) {
 
     infoWindow.setContent(`
           <div class="infoWindow">
-            <h2 class="infoWindow__title">${name} (${label})</h2>
+            <h2 class="infoWindow__title">${name}</h2>
+            <div class="infoWindow__type">(${label})</div>
             <p class="infoWindow__address">${address}</p>
             <div class="infoWindow__buttons">
                 <a class="infoWindow__button" href="${url}" target="_blank">
