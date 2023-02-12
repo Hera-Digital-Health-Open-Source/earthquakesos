@@ -97,7 +97,7 @@ function createMarker(center, map, infoWindow) {
   const lastUpdateDate = new Date(last_updated);
   console.log(type);
   const image = {
-    url: `./images/${type ?? 'default'}.png`,
+    url: `./images/${activity_state === 'Aktif' ? (type ?? 'default') : 'unactive'}.png`,
     // This marker is 20 pixels wide by 32 pixels high.
     size: new google.maps.Size(30, 30),
     // The origin for this image is (0, 0).
