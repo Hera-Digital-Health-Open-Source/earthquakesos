@@ -193,6 +193,10 @@ body {
   }
   .logo__image {
     margin: 0 12px;
+    max-height: 120px;
+  }
+  .logo__image--hera {
+    max-height: 110px;
   }
   .links {
     flex-direction: row;
