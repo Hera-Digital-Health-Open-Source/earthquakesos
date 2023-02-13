@@ -93,6 +93,7 @@ body {
 .links {
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
 }
 
 .col {
@@ -105,8 +106,8 @@ body {
 .button {
   cursor: pointer;
   display: flex;
-  height: 200px;
-  width: 200px;
+  height: 180px;
+  width: 180px;
   position: relative;
 }
 
@@ -164,10 +165,21 @@ body {
   background-size: contain;
 }
 
-.logo__image {
-  margin: 0 auto;
-  width: min(50vw, 200px);
+.logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-top: 15px;
+  margin-bottom: 10px;
 }
+
+
+.logo__image {
+  margin: 0px 5px;
+  max-width: 200px;
+  max-height: 100px;
+}
+
 
 /* Responsive: */
 @media only screen and (min-width: 640px) {
@@ -177,8 +189,15 @@ body {
   .col {
     flex: 1;
   }
+  .logo__image {
+    margin: 0 12px;
+  }
   .links {
     flex-direction: row;
+  }
+  .button {
+    height: 200px;
+    width: 200px;
   }
 }
 
@@ -190,7 +209,7 @@ body {
 
 
 @media only screen and (min-width: 1200px) {
-  .wrapper {
-    max-width: 40%;
+  .links {
+    flex-wrap: nowrap;
   }
 }
